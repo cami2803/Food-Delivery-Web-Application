@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.TimeZone;
 
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@EnableJpaRepositories(basePackages="com.example.fooddelivery.repositories")
+@SpringBootApplication//(exclude = {DataSourceAutoConfiguration.class})
+//@EnableJpaRepositories(basePackages="com.example.fooddelivery.repositories")
 
 public class FoodDeliveryApplication extends SpringBootServletInitializer {
 
