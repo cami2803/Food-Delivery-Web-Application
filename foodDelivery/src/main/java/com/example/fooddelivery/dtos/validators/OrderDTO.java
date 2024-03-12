@@ -1,15 +1,12 @@
 package com.example.fooddelivery.dtos.validators;
 
-import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.util.UUID;
 
 public class OrderDTO extends RepresentationModel<OrderDTO> {
     private UUID orderId;
-    @NotNull
     private UUID customerId;
-    @NotNull
 
     private float total;
 

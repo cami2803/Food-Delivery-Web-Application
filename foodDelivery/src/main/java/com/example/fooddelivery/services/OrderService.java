@@ -21,11 +21,7 @@ public class OrderService {
     }
 
     public UUID createOrder(OrderDTO orderDTO) {
-        Order order = new Order(UUID.randomUUID(), 0.0f);
-        order.setCustomerId(orderDTO.getCustomerId());
-        order.setTotal(orderDTO.getTotal());
-
-        Order savedOrder = orderRepository.save(order);
+        Order savedOrder = orderRepository.save(OrderBuilder.toEntity(orderDTO));
         return savedOrder.getOrderId();
     }
 

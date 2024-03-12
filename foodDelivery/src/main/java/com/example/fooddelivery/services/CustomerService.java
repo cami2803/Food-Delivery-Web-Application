@@ -22,11 +22,7 @@ public class CustomerService {
     }
 
     public UUID createCustomer(CustomerDTO customerDTO) {
-        Customer customer = new Customer("", "");
-        customer.setName(customerDTO.getName());
-        customer.setEmail(customerDTO.getEmail());
-
-        Customer savedCustomer = customerRepository.save(customer);
+        Customer savedCustomer = customerRepository.save(CustomerBuilder.toEntity(customerDTO));
         return savedCustomer.getCustomerId();
     }
 

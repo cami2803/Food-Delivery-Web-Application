@@ -1,9 +1,9 @@
 package com.example.fooddelivery.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -15,9 +15,13 @@ public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2")
+    //@GenericGenerator(name = "uuid2")
     private UUID orderID;
+
+    @Column(name = "customerID", nullable = false)
     private UUID customerID;
+
+    @Column(name = "total", nullable = false)
     private float total;
 
     public Order(UUID customerID, float total) {
