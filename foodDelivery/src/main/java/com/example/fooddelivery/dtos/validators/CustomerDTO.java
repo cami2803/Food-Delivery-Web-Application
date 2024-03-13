@@ -5,23 +5,23 @@ import org.springframework.hateoas.RepresentationModel;
 import java.util.UUID;
 
 public class CustomerDTO extends RepresentationModel<CustomerDTO> {
-    private UUID customerID;
+    private UUID customerid;
 
     private String name;
     private String email;
 
     public CustomerDTO(UUID customerId, String name, String email){
-        this.customerID = customerId;
+        this.customerid = customerId;
         this.name = name;
         this.email = email;
     }
 
     public UUID getCustomerId() {
-        return customerID;
+        return customerid;
     }
 
     public void setCustomerId(UUID customerId) {
-        this.customerID = customerId;
+        this.customerid = customerId;
     }
 
     public String getName() {

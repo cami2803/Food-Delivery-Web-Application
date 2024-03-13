@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -33,9 +34,8 @@ public class CustomerService {
         Customer updatedCustomer = customerRepository.save(customer);
         return CustomerBuilder.toCustomerDTO(updatedCustomer);
     }
-    public UUID deleteCustomer(UUID id){
+    public void deleteCustomer(UUID id){
         customerRepository.deleteById(id);
-        return id;
     }
 
     public CustomerDTO getCustomerById(UUID id) {
@@ -43,11 +43,10 @@ public class CustomerService {
         return CustomerBuilder.toCustomerDTO(customer);
     }
 
-    public List<CustomerDTO> getAllCustomers(){
-        List<Customer> customers = customerRepository.findAll();
-        return customers.stream()
-                .map(CustomerBuilder::toCustomerDTO)
-                .collect(Collectors.toList());
+    public List<Customer> getAllCustomers(){
+        List<Customer> customers = new ArrayList<Customer>();
+        customerRepository.findAll().forEach(customer1 -> customers.add(customer1));
+        return customers;
     }
 
 }

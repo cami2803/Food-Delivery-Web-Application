@@ -15,8 +15,7 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(generator = "uuid2")
-    //@GenericGenerator(name = "uuid2")
-    private UUID customerID;
+    private UUID customerid;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -34,11 +33,11 @@ public class Customer implements Serializable {
     }
 
     public UUID getCustomerId() {
-        return customerID;
+        return customerid;
     }
 
     public void setCustomerId(UUID customerId) {
-        this.customerID = customerId;
+        this.customerid = customerId;
     }
 
     public String getName() {

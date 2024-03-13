@@ -5,23 +5,23 @@ import org.springframework.hateoas.RepresentationModel;
 import java.util.UUID;
 
 public class OrderDTO extends RepresentationModel<OrderDTO> {
-    private UUID orderId;
-    private UUID customerId;
+    private UUID orderid;
+    private UUID customerid;
 
     private float total;
 
     public OrderDTO(UUID orderId, UUID customerId, float total){
-        this.orderId = orderId;
-        this.customerId = customerId;
+        this.orderid = orderId;
+        this.customerid = customerId;
         this.total = total;
     }
 
     public UUID getOrderId() {
-        return orderId;
+        return orderid;
     }
 
     public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
+        this.orderid = orderId;
     }
 
     public float getTotal() {
@@ -32,12 +32,12 @@ public class OrderDTO extends RepresentationModel<OrderDTO> {
         this.total = total;
     }
 
-    public UUID getCustomerId() {
-        return customerId;
+    public UUID getCustomerid() {
+        return customerid;
     }
 
-    public void setCustomerId(UUID customerId) {
-        this.customerId = customerId;
+    public void setCustomerid(UUID customerid) {
+        this.customerid = customerid;
     }
 
 

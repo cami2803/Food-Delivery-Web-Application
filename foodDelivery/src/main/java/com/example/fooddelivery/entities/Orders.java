@@ -10,42 +10,41 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-public class Order implements Serializable {
+public class Orders implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(generator = "uuid2")
-    //@GenericGenerator(name = "uuid2")
-    private UUID orderID;
+    private UUID orderid;
 
-    @Column(name = "customerID", nullable = false)
-    private UUID customerID;
+    @Column(name = "customerid", nullable = false)
+    private UUID customerid;
 
     @Column(name = "total", nullable = false)
     private float total;
 
-    public Order(UUID customerID, float total) {
-        this.customerID = customerID;
+    public Orders(UUID customerID, float total) {
+        this.customerid = customerID;
         this.total = total;
     }
 
-    public Order(){
+    public Orders(){
 
     }
     public UUID getOrderId() {
-        return orderID;
+        return orderid;
     }
 
     public void setOrderId(UUID orderId) {
-        this.orderID = orderId;
+        this.orderid = orderId;
     }
 
     public UUID getCustomerId() {
-        return customerID;
+        return customerid;
     }
 
     public void setCustomerId(UUID customerId) {
-        this.customerID = customerId;
+        this.customerid = customerId;
     }
 
     public float getTotal() {
