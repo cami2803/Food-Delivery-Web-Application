@@ -1,4 +1,4 @@
-package com.example.fooddelivery.config;
+package com.example.fooddelivery.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

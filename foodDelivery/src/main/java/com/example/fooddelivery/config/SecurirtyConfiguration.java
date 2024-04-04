@@ -1,5 +1,6 @@
 package com.example.fooddelivery.config;
 
+import com.example.fooddelivery.entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +24,7 @@ public class SecurirtyConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
+                .requestMatchers("/orders/insert", "/customer/**").hasAuthority(Role.ADMIN.name())
                 .requestMatchers("/api/**", "/user/**")
                 .permitAll()
                 .anyRequest()
