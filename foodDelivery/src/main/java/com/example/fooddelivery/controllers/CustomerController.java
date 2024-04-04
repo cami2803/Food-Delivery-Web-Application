@@ -55,10 +55,11 @@ public class CustomerController {
     }
 
     //postman verification for updating a customer: http://localhost:8080/customer/{customerid}
-    //{
-    //    "customerid": "",
-    //    "total": 200.00
-    //}
+//    {
+//        "customerid": "b2157fee-efdf-4778-838b-e825b5f1354d",
+//            "name": "Ana",
+//            "email": "john@example.com"
+//    }
     @PutMapping("/{id}")
     public ResponseEntity<CustomerDTO> updateCustomer(@PathVariable("id") UUID customerid, @Valid @RequestBody CustomerDTO customerDTO) {
         CustomerDTO updatedCustomerDTO = customerService.updateCustomer(customerid, customerDTO);
