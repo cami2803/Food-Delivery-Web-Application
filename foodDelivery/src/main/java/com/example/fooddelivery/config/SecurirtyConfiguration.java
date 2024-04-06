@@ -24,7 +24,7 @@ public class SecurirtyConfiguration {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/orders/insert", "/customer/**").hasAuthority(Role.ADMIN.name())
+                .requestMatchers("/orders/insert", "/customer/**", "/products/**").hasAuthority(Role.ADMIN.name())
                 .requestMatchers("/api/**", "/user/**")
                 .permitAll()
                 .anyRequest()

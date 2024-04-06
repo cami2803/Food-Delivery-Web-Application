@@ -4,12 +4,10 @@ import com.example.fooddelivery.auth.AuthenticationRequest;
 import com.example.fooddelivery.auth.AuthenticationResponse;
 import com.example.fooddelivery.auth.RegisterRequest;
 import com.example.fooddelivery.entities.MyUser;
-import com.example.fooddelivery.entities.Role;
 import com.example.fooddelivery.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
