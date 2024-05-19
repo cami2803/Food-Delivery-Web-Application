@@ -4,13 +4,13 @@ import com.example.fooddelivery.auth.AuthenticationRequest;
 import com.example.fooddelivery.auth.AuthenticationResponse;
 import com.example.fooddelivery.auth.RegisterRequest;
 import com.example.fooddelivery.services.AuthenticationService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 
 @RestController
 @RequestMapping("/api")
@@ -25,7 +25,12 @@ public class AuthenticationController {
         String firstname = request.getFirstname();
         String lastname = request.getLastname();
 
-        if(!email.contains("@") || !containsOnlyCharacters(firstname) || !containsOnlyCharacters(lastname)){
+        if(!email.contains("@")){
+            System.out.println("Email not correct!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        if(!containsOnlyCharacters(firstname) || !containsOnlyCharacters(lastname)){
+            System.out.println("Name is not correct!" + firstname + " " + lastname);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
 
