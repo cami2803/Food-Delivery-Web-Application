@@ -17,9 +17,9 @@ function LoginPage() {
                 email,
                 password
             });
-
             const data = response.data;
             const token = data.token;
+            
             localStorage.setItem('token', token);
             setError('');
             navigate('/home');

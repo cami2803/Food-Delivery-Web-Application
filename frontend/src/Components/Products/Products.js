@@ -22,24 +22,6 @@ const ProductsContainer = () => {
         }
     };
 
-    const updateData = () => {
-        const token = localStorage.getItem('token'); 
-        if (token !== "") {
-          navigate('/updateProduct');
-        } else {
-            console.log("Token is null");
-        }
-    };
-
-    const deleteData = () => {
-        const token = localStorage.getItem('token'); 
-        if (token !== "") {
-          navigate('/deleteProduct');
-        } else {
-            console.log("Token is null");
-        }
-    };
-
     const handleLogout = () => {
       localStorage.removeItem('token');
       navigate('/');
@@ -57,8 +39,6 @@ const ProductsContainer = () => {
               <button onClick={handleLogout}>Logout</button>
             </div>
             <button onClick={fetchData}>List</button>
-            <button onClick={deleteData}>Delete</button>
-            <button onClick={updateData}>Update</button>
             <button onClick={createData}>Create</button>
       </div>
     );

@@ -19,8 +19,15 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration {
-    private static final String[] WHITE_LIST_URL = {"/api/**", "/user/**", "/products/list", "/orders/**"};
-    private static final String[] ADMIN_ONLY_URL_LIST = {"/customer/**", "/products/{id}"};
+    private static final String[] WHITE_LIST_URL = {"/api/**",
+            "/user/**",
+            "/products/list",
+            "/orders/**",
+            "/orders/insert"};
+    private static final String[] ADMIN_ONLY_URL_LIST = {"/customer/**",
+            "/products/update/{id}",
+            "/products/insert",
+            "/products/delete/{id}"};
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
         @Bean

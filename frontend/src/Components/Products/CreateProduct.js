@@ -53,7 +53,11 @@ const CreateProductContainer = () => {
             setPrice('');
             navigate('/createProduct');
         } catch (err) {
-            setError(err.message);
+            if (err.response && err.response.status === 403) {
+                setError('You do not have the required authorization to update this product.');
+            } else {
+                setError('An error occurred while updating the product. Please try again.');
+            }
             setIsLoading(false);
         }
     };

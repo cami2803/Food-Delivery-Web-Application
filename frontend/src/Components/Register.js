@@ -14,6 +14,7 @@ function RegisterPage() {
     const navigate = useNavigate();
 
     const handleRegister= async () => {
+        
         try {
             if (!firstname || !lastname || !email || !password || !confirmPassword) {
                 setError('Please fill in all fields.');
@@ -30,7 +31,10 @@ function RegisterPage() {
                 password,
                 role
             });
-            console.log(response.data);
+            const data = response.data;
+            const customerid = data.customerid;
+            console.log(customerid);
+            localStorage.setItem('customerid', customerid);
             navigate('/home');
         } catch (error) {
             console.error('Register failed:', error.response ? error.response.data : error.message);
